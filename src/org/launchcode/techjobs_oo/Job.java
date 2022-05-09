@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Objects;
 
 public class Job {
@@ -29,7 +31,7 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer,Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -37,6 +39,7 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
 
     public String getName() {
         return name;
@@ -93,5 +96,18 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+    }
+
+    @Override
+    public String toString() {
+        return "\n" +
+                "ID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer.getValue() +
+                "\nLocation: " + location.getValue() +
+                "\nPosition Type: " + positionType.getValue() +
+                "\nCore Competency: " + coreCompetency.getValue() +
+                "\n";
+
     }
 }
